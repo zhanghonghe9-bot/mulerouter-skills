@@ -3,8 +3,8 @@
 This package imports all MiniMax model endpoints to register them with the global registry.
 """
 
-import contextlib
 import importlib.util
+import sys
 from pathlib import Path
 
 # Get the directory of this file
@@ -38,5 +38,7 @@ def _import_model_file(model_file: str) -> None:
 
 # Import each model file to register endpoints
 for _model_file in _model_files:
-    with contextlib.suppress(Exception):
+    try:
         _import_model_file(_model_file)
+    except Exception as e:
+        print(f"Warning: failed to load {_model_file}: {e}", file=sys.stderr)

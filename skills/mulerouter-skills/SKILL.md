@@ -111,6 +111,16 @@ uv run python models/alibaba/wan2.6-i2v/generation.py --prompt "Gentle zoom in" 
 uv run python models/alibaba/wan2.6-i2v/generation.py --prompt "Gentle zoom in" --image "/path/to/local/image.png" #local image path
 ```
 
+**Text-to-Speech (voice-id is required):**
+```bash
+uv run python models/minimax/speech-2.8-turbo/generation.py --prompt "Hello world, welcome to the future of AI." --voice-id "Charming_Lady"
+```
+
+**Text-to-Music:**
+```bash
+uv run python models/minimax/music-2.5/generation.py --prompt "[verse]\nHello world\n[chorus]\nLa la la"
+```
+
 ## Image Input
 
 For image parameters (`--image`, `--images`, etc.), **prefer local file paths** over base64.
@@ -147,6 +157,7 @@ uv run python scripts/list_models.py --tag SOTA
 ## Tips
 1. For an image generation model, a suggested timeout is 5 minutes.
 2. For a video generation model, a suggested timeout is 15 minutes.
+3. For TTS models (speech-2.8-hd/turbo), `--voice-id` is required. Use `--list-params` to see available voices, or refer to [MINIMAX_VOICES.md](references/MINIMAX_VOICES.md) for the full voice catalog.
 
 ## References
 

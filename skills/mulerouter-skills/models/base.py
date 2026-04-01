@@ -26,6 +26,16 @@ from core import (
 )
 
 
+def _find_key_in_body(body: dict[str, Any], key: str) -> bool:
+    """Check if a key exists in body, including nested dicts."""
+    if key in body:
+        return True
+    for v in body.values():
+        if isinstance(v, dict) and key in v:
+            return True
+    return False
+
+
 class BaseModelEndpoint(ABC):
     """Base class for model endpoint implementations.
 
@@ -316,7 +326,7 @@ class BaseModelEndpoint(ABC):
         # Validate required parameters
         info = self.endpoint_info
         for param in info.parameters:
-            if param.required and param.name not in body:
+            if param.required and not _find_key_in_body(body, param.name):
                 print(f"Error: --{param.name.replace('_', '-')} is required", file=sys.stderr)
                 return 1
 

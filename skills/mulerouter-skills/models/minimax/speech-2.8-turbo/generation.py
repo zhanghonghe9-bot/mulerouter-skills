@@ -38,8 +38,8 @@ ENDPOINT = ModelEndpoint(
         ModelParameter(
             name="voice_id",
             type="string",
-            description="Predefined voice ID (required). Examples - Chinese: male-qn-qingse, female-shaonv, female-yujie; English: Charming_Lady, Sweet_Girl, English_Trustworthy_Man; Japanese: Japanese_IntellectualSenior; Korean: Korean_SweetGirl. Full list: references/MINIMAX_VOICES.md",
-            required=False,
+            description="Predefined voice ID. Examples - English: Charming_Lady, Sweet_Girl, English_Trustworthy_Man; Chinese: male-qn-qingse, female-shaonv, female-yujie; Japanese: Japanese_IntellectualSenior; Korean: Korean_SweetGirl. Full list: references/MINIMAX_VOICES.md",
+            required=True,
         ),
         ModelParameter(
             name="speed",
