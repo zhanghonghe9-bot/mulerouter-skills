@@ -133,3 +133,4 @@ Optional:
 | `--duration` | int | Video | Length in seconds |
 | `--seed` | int | All | Reproducibility seed |
 | `--image` | string | I2V/I2I | Input image URL |
+| `--safety-filter` | boolean | All Wan | Enable safety content filtering (default: true) |
