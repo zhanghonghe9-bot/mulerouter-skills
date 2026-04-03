@@ -103,6 +103,13 @@ ENDPOINT = ModelEndpoint(
             description="Random seed for reproducibility (0-2147483647)",
             required=False,
         ),
+        ModelParameter(
+            name="safety_filter",
+            type="boolean",
+            description="Enable safety content filtering",
+            required=False,
+            default=True,
+        ),
     ],
 )
 
